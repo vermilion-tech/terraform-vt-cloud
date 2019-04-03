@@ -6,10 +6,12 @@ resource "random_id" "this" {
 module "droplet" {
   source = "github.com/vermilion-tech/terraform-digitalocean?ref=development//modules/droplet"
 
+  image    = "${var.image}"
   size     = "${var.size}"
   name     = "${random_id.this.hex}"
   region   = "${var.region}"
   ssh_keys = "${var.ssh_keys}"
+  tags     = "${var.tags}"
 }
 
 module "floating_ip" {

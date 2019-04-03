@@ -19,6 +19,8 @@ module "vt_cloud_node_2" {
   region = "nyc1"
   domain = "vermilion.tech"
 
+  tags = "${var.tags}"
+
   ssh_keys = [
     "${data.digitalocean_ssh_key.kaden.fingerprint}",
     "${data.digitalocean_ssh_key.ari.fingerprint}",
